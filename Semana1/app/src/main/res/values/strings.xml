@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Semana1</string>
+
+    <string-array name="estadoCivil">
+        <item>Soltero</item>
+        <item>Casado</item>
+    </string-array>
+</resources>
