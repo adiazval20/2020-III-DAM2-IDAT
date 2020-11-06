@@ -54,9 +54,11 @@ public class MainActivity extends AppCompatActivity {
 //        grwPlanetas.setAdapter(adapter);
 
         List<Planeta> lstPlanetas = new ArrayList<>();
-        lstPlanetas.add(new Planeta(1, "Mercurio", R.drawable.marte));
+        lstPlanetas.add(new Planeta(1, "Mercurio", R.drawable.mercurio));
         lstPlanetas.add(new Planeta(2, "Venus", R.drawable.venus));
         lstPlanetas.add(new Planeta(3, "Tierra", R.drawable.tierra));
+        lstPlanetas.add(new Planeta(4, "Marte", R.drawable.marte));
+        lstPlanetas.add(new Planeta(5, "Jupiter", R.drawable.jupiter));
 
         PlanetaAdapter planetaAdapter = new PlanetaAdapter(this, R.layout.item_planeta, lstPlanetas);
         grwPlanetas.setAdapter(planetaAdapter);
