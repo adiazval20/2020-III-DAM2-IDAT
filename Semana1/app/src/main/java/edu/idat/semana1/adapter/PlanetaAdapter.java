@@ -30,12 +30,14 @@ public class PlanetaAdapter extends ArrayAdapter<Planeta> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_planeta, parent, false);
         }
 
-        ImageView imgPlaneta = convertView.findViewById(R.id.imgPlaneta);
         TextView txtNombre = convertView.findViewById(R.id.txtNombre);
+        ImageView imgPlaneta = convertView.findViewById(R.id.imgPlaneta);
+        TextView txtDescripcion = convertView.findViewById(R.id.txtDescripcion);
 
         Planeta planeta = getItem(position);
         imgPlaneta.setImageResource(planeta.getImagenId());
         txtNombre.setText(planeta.getNombre());
+        txtDescripcion.setText(planeta.getDescripcion());
 
         return convertView;
     }

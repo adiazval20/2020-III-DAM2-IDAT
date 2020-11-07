@@ -1,21 +1,17 @@
-package edu.idat.semana1.entity;
+package edu.idat.semana2.entity;
 
-public class Planeta {
+public class Seccion {
     private int id;
     private String nombre;
     private int imagenId;
-    private String descripcion;
 
-    // ALT + INSERT
-
-    public Planeta() {
+    public Seccion() {
     }
 
-    public Planeta(int id, String nombre, int imagenId, String descripcion) {
+    public Seccion(int id, String nombre, int imagenId) {
         this.id = id;
         this.nombre = nombre;
         this.imagenId = imagenId;
-        this.descripcion = descripcion;
     }
 
     public int getId() {
@@ -40,13 +36,5 @@ public class Planeta {
 
     public void setImagenId(int imagenId) {
         this.imagenId = imagenId;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 }

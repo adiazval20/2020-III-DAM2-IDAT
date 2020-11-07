@@ -5,6 +5,14 @@
     android:orientation="vertical"
     android:padding="20dp">
 
+    <TextView
+        android:id="@+id/txtNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
     <ImageView
         android:id="@+id/imgPlaneta"
         android:layout_width="120dp"
@@ -13,9 +21,9 @@
         android:adjustViewBounds="true" />
 
     <TextView
-        android:id="@+id/txtNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/txtDescripcion"
         android:layout_marginTop="10dp"
-        android:textAlignment="center" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
