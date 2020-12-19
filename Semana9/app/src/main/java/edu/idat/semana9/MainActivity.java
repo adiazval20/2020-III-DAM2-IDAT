@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         viewModel.listProductos().observe(this, new Observer<List<Producto>>() {
             @Override
             public void onChanged(List<Producto> productos) {
-                Toast.makeText(MainActivity.this, String.valueOf(productos.size()), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, String.valueOf(productos.size()), Toast.LENGTH_LONG).show();
             }
         });
     }
