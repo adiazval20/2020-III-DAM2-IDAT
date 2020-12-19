@@ -27,6 +27,7 @@ public abstract class AppDatabase extends RoomDatabase {
             synchronized (AppDatabase.class) {
                 if (DB == null) {
                     DB = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "DAM2")
+                            .addCallback(initCallback)
                             .build();
                 }
             }
@@ -51,5 +52,5 @@ public abstract class AppDatabase extends RoomDatabase {
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
         }
-    }
+    };
 }
