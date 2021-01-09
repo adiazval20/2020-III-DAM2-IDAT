@@ -42,9 +42,9 @@ public abstract class AppDatabase extends RoomDatabase {
                 @Override
                 public void run() {
                     ProductoDao productoDao = DB.productoDao();
-                    productoDao.insert(new Producto("Iphone", "Descripción de Iphone", 3500, ""));
-                    productoDao.insert(new Producto("Samsung Galaxy", "Descripción de Samsung Galaxy", 2500, ""));
-                    productoDao.insert(new Producto("Alcatel", "Descripción de Alcatel", 500, ""));
+                    productoDao.insert(new Producto("Iphone", "Descripción de Iphone", 3500, "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_announce-iphone12pro_10132020.jpg.og.jpg?202012212048"));
+                    productoDao.insert(new Producto("Samsung Galaxy", "Descripción de Samsung Galaxy", 2500, "https://d500.epimg.net/cincodias/imagenes/2020/09/02/smartphones/1599028334_859258_1599028423_sumario_normal.jpg"));
+                    productoDao.insert(new Producto("Alcatel", "Descripción de Alcatel", 500, "https://http2.mlstatic.com/celular-alcatel-1v-16gb-2gb-android-pie-garantia-oficial-pce-D_Q_NP_951031-MLA41694789763_052020-F.webp"));
                 }
             });
         }
