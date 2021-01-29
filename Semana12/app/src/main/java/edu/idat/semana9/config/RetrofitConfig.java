@@ -1,7 +1,9 @@
 package edu.idat.semana9.config;
 
+import edu.idat.semana9.api.CommentApi;
 import edu.idat.semana9.api.PhotoApi;
 import edu.idat.semana9.api.PostApi;
+import edu.idat.semana9.entity.Comment;
 import edu.idat.semana9.entity.Photo;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -12,6 +14,7 @@ public class RetrofitConfig {
     private static Retrofit client;
     private static PostApi postApi;
     private static PhotoApi photoApi;
+    private static CommentApi commentApi;
 
     static {
         String baseUrl = "https://jsonplaceholder.typicode.com/";
@@ -44,5 +47,12 @@ public class RetrofitConfig {
             photoApi = client.create(PhotoApi.class);
         }
         return photoApi;
+    }
+
+    public static CommentApi getCommentApi() {
+        if (commentApi == null) {
+            commentApi = client.create(CommentApi.class);
+        }
+        return commentApi;
     }
 }

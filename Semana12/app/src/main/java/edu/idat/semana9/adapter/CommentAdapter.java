@@ -18,8 +18,8 @@ import edu.idat.semana9.entity.Comment;
 public class CommentAdapter extends ArrayAdapter<Comment> {
     private TextView txtNombre, txtEmail, txtContenido;
 
-    public CommentAdapter(@NonNull Context context, int resource, @NonNull List<Comment> objects) {
-        super(context, resource, objects);
+    public CommentAdapter(@NonNull Context context, int resource) {
+        super(context, resource);
     }
 
     @NonNull
@@ -39,5 +39,11 @@ public class CommentAdapter extends ArrayAdapter<Comment> {
         txtContenido.setText(comment.getBody());
 
         return convertView;
+    }
+
+    public void loadData(List<Comment> comments) {
+        clear();
+        addAll(comments);
+        notifyDataSetChanged();
     }
 }
