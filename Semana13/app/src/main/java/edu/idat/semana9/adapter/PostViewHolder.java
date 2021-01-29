@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import edu.idat.semana9.R;
-import edu.idat.semana9.api.CommentApi;
 import edu.idat.semana9.api.PhotoApi;
 import edu.idat.semana9.config.RetrofitConfig;
 import edu.idat.semana9.entity.Photo;

@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.squareup.picasso.Picasso;
@@ -58,14 +57,14 @@ public class MainActivity extends AppCompatActivity {
         btnMostrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                long postId = Long.parseLong(edtPostId.getText().toString());
+                String postId = edtPostId.getText().toString();
 
                 postApi.find(postId).enqueue(new Callback<Post>() {
                     @Override
                     public void onResponse(Call<Post> call, Response<Post> response) {
                         Post post = response.body();
-                        txtTitulo.setText(post.getTitle());
-                        txtContenido.setText(post.getBody());
+                        txtTitulo.setText(post.getImage());
+                        txtContenido.setText(post.getText());
                     }
 
                     @Override

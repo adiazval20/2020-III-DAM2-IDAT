@@ -9,5 +9,5 @@ import retrofit2.http.Path;
 
 public interface CommentApi {
     @GET("/posts/{postId}/comments")
-    Call<List<Comment>> listByPostId(@Path("postId") long postId);
+    Call<List<Comment>> listByPostId(@Path("postId") String postId);
 }

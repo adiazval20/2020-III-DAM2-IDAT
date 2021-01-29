@@ -12,5 +12,5 @@ public interface PostApi {
     Call<List<Post>> list();
 
     @GET("/posts/{id}")
-    Call<Post> find(@Path("id") long id);
+    Call<Post> find(@Path("id") String id);
 }

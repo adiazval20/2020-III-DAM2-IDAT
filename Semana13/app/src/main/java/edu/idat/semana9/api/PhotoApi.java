@@ -7,5 +7,5 @@ import retrofit2.http.Path;
 
 public interface PhotoApi {
     @GET("/photos/{id}")
-    Call<Photo> find(@Path("id") long id);
+    Call<Photo> find(@Path("id") String id);
 }
