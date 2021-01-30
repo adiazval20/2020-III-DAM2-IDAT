@@ -25,7 +25,7 @@
             android:id="@+id/btnMostrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Obtener publicación"
+            android:text="Obtener"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -74,6 +74,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
         android:text="Comentarios"
         android:textColor="@color/design_default_color_error"
