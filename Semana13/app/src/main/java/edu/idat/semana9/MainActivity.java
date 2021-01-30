@@ -22,6 +22,7 @@ import edu.idat.semana9.config.RetrofitConfig;
 import edu.idat.semana9.entity.Comment;
 import edu.idat.semana9.entity.Photo;
 import edu.idat.semana9.entity.Post;
+import edu.idat.semana9.entity.ResponseListApi;
 import edu.idat.semana9.viewmodel.MainViewModel;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -63,8 +64,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Post> call, Response<Post> response) {
                         Post post = response.body();
-                        txtTitulo.setText(post.getImage());
+                        txtTitulo.setText(post.getPublishDate());
                         txtContenido.setText(post.getText());
+                        Picasso.get().load(post.getImage()).into(imgFoto);
                     }
 
                     @Override
@@ -73,28 +75,15 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                photoApi.find(postId).enqueue(new Callback<Photo>() {
+                commentApi.listByPostId(postId).enqueue(new Callback<ResponseListApi<List<Comment>>>() {
                     @Override
-                    public void onResponse(Call<Photo> call, Response<Photo> response) {
-                        Photo photo = response.body();
-                        Picasso.get().load(photo.getUrl()).into(imgFoto);
-                    }
-
-                    @Override
-                    public void onFailure(Call<Photo> call, Throwable t) {
-
-                    }
-                });
-
-                commentApi.listByPostId(postId).enqueue(new Callback<List<Comment>>() {
-                    @Override
-                    public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
-                        List<Comment> comments = response.body();
+                    public void onResponse(Call<ResponseListApi<List<Comment>>> call, Response<ResponseListApi<List<Comment>>> response) {
+                        List<Comment> comments = response.body().getData();
                         adapter.loadData(comments);
                     }
 
                     @Override
-                    public void onFailure(Call<List<Comment>> call, Throwable t) {
+                    public void onFailure(Call<ResponseListApi<List<Comment>>> call, Throwable t) {
 
                     }
                 });

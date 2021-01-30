@@ -34,9 +34,7 @@ public class CommentAdapter extends ArrayAdapter<Comment> {
         txtContenido = convertView.findViewById(R.id.txtContenido);
 
         Comment comment = getItem(position);
-        txtNombre.setText(comment.getName());
-        txtEmail.setText(comment.getEmail());
-        txtContenido.setText(comment.getBody());
+        txtContenido.setText(comment.getMessage());
 
         return convertView;
     }
