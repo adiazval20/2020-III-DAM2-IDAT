@@ -34,4 +34,12 @@ public class Comment {
     public void setPostId(long postId) {
         this.postId = postId;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
