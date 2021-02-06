@@ -79,7 +79,7 @@ public class PostRepository {
                     @Override
                     public void run() {
                         dao.delete(resPost);
-                        dao.insert(post);
+                        dao.insert(resPost);
                         flagCalling = false;
                     }
                 });
