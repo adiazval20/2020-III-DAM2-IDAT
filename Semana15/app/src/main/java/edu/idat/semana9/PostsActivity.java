@@ -1,6 +1,8 @@
 package edu.idat.semana9;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -14,6 +16,7 @@ import edu.idat.semana9.api.PostApi;
 import edu.idat.semana9.config.RetrofitConfig;
 import edu.idat.semana9.entity.Post;
 import edu.idat.semana9.entity.ResponseApi;
+import edu.idat.semana9.viewmodel.PostsViewModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,29 +24,24 @@ import retrofit2.Response;
 public class PostsActivity extends AppCompatActivity {
     private RecyclerView rcvPosts;
     private PostAdapter postAdapter;
-    private PostApi postApi;
+    private PostsViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posts);
 
+        viewModel = new ViewModelProvider(this).get(PostsViewModel.class);
+
         rcvPosts = findViewById(R.id.rcvPosts);
         rcvPosts.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
         postAdapter = new PostAdapter();
         rcvPosts.setAdapter(postAdapter);
 
-        postApi = RetrofitConfig.getPostApi();
-        postApi.list().enqueue(new Callback<ResponseApi<List<Post>>>() {
+        viewModel.listPosts().observe(this, new Observer<List<Post>>() {
             @Override
-            public void onResponse(Call<ResponseApi<List<Post>>> call, Response<ResponseApi<List<Post>>> response) {
-                List<Post> posts = response.body().getData();
+            public void onChanged(List<Post> posts) {
                 postAdapter.loadData(posts);
-            }
-
-            @Override
-            public void onFailure(Call<ResponseApi<List<Post>>> call, Throwable t) {
-                Toast.makeText(PostsActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
