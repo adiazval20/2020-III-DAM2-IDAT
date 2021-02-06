@@ -1,14 +1,20 @@
 package edu.idat.semana9.entity;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Post {
+    @PrimaryKey
+    @NonNull
     private String id;
+
     private String image;
     private String text;
     private String publishDate;
     private int likes;
-
-    public Post() {
-    }
+    private String link;
 
     public String getId() {
         return id;
@@ -48,5 +54,13 @@ public class Post {
 
     public void setLikes(int likes) {
         this.likes = likes;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }

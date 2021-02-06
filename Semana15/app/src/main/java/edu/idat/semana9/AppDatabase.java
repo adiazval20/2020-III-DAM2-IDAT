@@ -11,16 +11,20 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import edu.idat.semana9.dao.PostDao;
 import edu.idat.semana9.dao.ProductoDao;
+import edu.idat.semana9.entity.Post;
 import edu.idat.semana9.entity.Producto;
 
-@Database(entities = {Producto.class}, version = 1)
+@Database(entities = {Producto.class, Post.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase DB;
     private static final int HILOS = 4;
     public static final ExecutorService dbExecutor = Executors.newFixedThreadPool(HILOS);
 
     public abstract ProductoDao productoDao();
+
+    public abstract PostDao postDao();
 
     public static AppDatabase getDatabase(Context context) {
         if (DB == null) {

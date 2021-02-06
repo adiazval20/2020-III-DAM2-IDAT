@@ -1,6 +1,6 @@
 package edu.idat.semana9.entity;
 
-public class ResponseListApi<T> {
+public class ResponseApi<T> {
     private T data;
 
     public T getData() {

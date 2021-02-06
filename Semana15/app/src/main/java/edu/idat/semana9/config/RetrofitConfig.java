@@ -22,7 +22,7 @@ public class RetrofitConfig {
     private static CommentApi commentApi;
 
     static {
-        String baseUrl = "https://dummyapi.io/data/api/";
+        String baseUrl = "https://protected-eyrie-34939.herokuapp.com/";
         client = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
