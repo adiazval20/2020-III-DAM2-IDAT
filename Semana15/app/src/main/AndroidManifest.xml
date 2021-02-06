@@ -12,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Semana9"
         android:usesCleartextTraffic="true">
+        <activity android:name=".PostDataActivity"></activity>
         <activity android:name=".PostsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -59,4 +59,36 @@ public class PostRepository {
             }
         });
     }
+
+    public LiveData<Post> create(Post post) {
+        if (!flagCalling) {
+            createApi(post);
+        }
+        return dao.find(post.getId());
+    }
+
+    private void createApi(Post post) {
+        flagCalling = true;
+
+        api.create(post).enqueue(new Callback<ResponseApi<Post>>() {
+            @Override
+            public void onResponse(Call<ResponseApi<Post>> call, Response<ResponseApi<Post>> response) {
+                Post resPost = response.body().getData();
+
+                AppDatabase.dbExecutor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        dao.delete(resPost);
+                        dao.insert(post);
+                        flagCalling = false;
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<ResponseApi<Post>> call, Throwable t) {
+                flagCalling = false;
+            }
+        });
+    }
 }

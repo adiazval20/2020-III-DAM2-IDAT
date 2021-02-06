@@ -22,4 +22,8 @@ public class PostsViewModel extends AndroidViewModel {
     public LiveData<List<Post>> listPosts() {
         return postRepo.list();
     }
+
+    public LiveData<Post> createPost(Post post) {
+        return postRepo.create(post);
+    }
 }

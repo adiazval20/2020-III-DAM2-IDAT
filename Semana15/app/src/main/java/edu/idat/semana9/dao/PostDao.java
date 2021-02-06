@@ -16,6 +16,9 @@ public interface PostDao {
     @Query("SELECT * FROM Post")
     LiveData<List<Post>> list();
 
+    @Query("SELECT * FROM Post WHERE id = :id")
+    LiveData<Post> find(String id);
+
     @Insert
     void insert(Post post);
 
